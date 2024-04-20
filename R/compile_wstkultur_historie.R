@@ -33,6 +33,8 @@ setnames(out, sub('.y', '', names(out), fixed = TRUE))
 names(out) = sub('Okt', 'Oct', names(out), fixed = TRUE)
 # convert to actual date strings
 names(out)[7:ncol(out)] = format(as.IDate(paste0('01', names(out)[7:ncol(out)]), '%d%b%y'), '%Y%m%d')
+# colorer
+setcolorder(out, c(id_vars, sort(names(out)[7:ncol(out)])))
 
 # write -------------------------------------------------------------------
 fl = paste0(min(names(out)[7:ncol(out)]), '_', max(names(out)[7:ncol(out)]), '_WstKulturHistorie.tsv.gz')
